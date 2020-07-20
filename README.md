@@ -2,7 +2,7 @@
 
 Downloading XCode and other developer tools from Apple's website is made hassel free.
 
-* You dont have to download XCode again and again because your download got interrupted.
+* You dont have to download XCode again and again because your download got interrupted anymore.
 * You dont have to worry about your flaky network connection or your mac's battery status while downloading humongous XCode.
 * You dont have to use various chrome plugins to get `cookies.txt` to work with `wget`.
 * You dont have to remember various command line arguments of `wget` just to download XCode once in a while.
