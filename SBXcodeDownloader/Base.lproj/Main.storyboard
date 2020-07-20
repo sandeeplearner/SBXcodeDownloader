@@ -1,7 +1,9 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="15705"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,45 +675,311 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="SBXcodeDownloader" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="76" y="19"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
                     <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="196" y="240" width="800" height="800"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <value key="minSize" type="size" width="800" height="800"/>
+                        <value key="maxSize" type="size" width="800" height="800"/>
+                        <value key="minFullScreenContentSize" type="size" width="800" height="800"/>
+                        <value key="maxFullScreenContentSize" type="size" width="800" height="800"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="Jc3-wO-rFp" kind="relationship" relationship="window.shadowedContentViewController" id="JqS-sG-yiB"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="250"/>
+            <point key="canvasLocation" x="75" y="380"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <scene sceneID="lQp-Lc-hVz">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <viewController identifier="initialViewController" storyboardIdentifier="initialViewController" id="Jc3-wO-rFp" customClass="ViewController" customModule="SBXcodeDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="AaX-K1-exx">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bqu-Ah-cMb">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="718"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="uM3-UY-MIx">
+                                <rect key="frame" x="384" y="343" width="32" height="32"/>
+                            </progressIndicator>
+                            <pathControl verticalHuggingPriority="750" allowsExpansionToolTips="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DV5-2d-EKa">
+                                <rect key="frame" x="7" y="734" width="96" height="25"/>
+                                <pathCell key="cell" selectable="YES" editable="YES" alignment="left" pathStyle="popUp" id="Wpu-8g-qmt">
+                                    <font key="font" metaFont="system"/>
+                                </pathCell>
+                                <connections>
+                                    <action selector="pathSelectorTriggeredWithSender:" target="Jc3-wO-rFp" id="35w-P7-nt3"/>
+                                </connections>
+                            </pathControl>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="myF-w1-Y5z">
+                                <rect key="frame" x="8" y="767" width="784" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Where would you like to download XCode?" id="ZYc-O4-2Qb">
+                                    <font key="font" metaFont="systemHeavy" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="8Yq-g7-r2P">
+                                <rect key="frame" x="637" y="728" width="159" height="32"/>
+                                <buttonCell key="cell" type="push" title="Enter URL Manually" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gWS-ld-X4I">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="openSecondViewController:" target="Jc3-wO-rFp" id="9H7-nH-l3r"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="8Yq-g7-r2P" firstAttribute="top" secondItem="myF-w1-Y5z" secondAttribute="bottom" constant="11" id="BIm-Pj-amh"/>
+                            <constraint firstItem="DV5-2d-EKa" firstAttribute="top" secondItem="myF-w1-Y5z" secondAttribute="bottom" constant="10" id="DT7-gk-MMI"/>
+                            <constraint firstItem="uM3-UY-MIx" firstAttribute="centerY" secondItem="Bqu-Ah-cMb" secondAttribute="centerY" id="Fg7-QR-0xm"/>
+                            <constraint firstItem="8Yq-g7-r2P" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="DV5-2d-EKa" secondAttribute="trailing" constant="10" id="LOE-of-4Y1"/>
+                            <constraint firstItem="Bqu-Ah-cMb" firstAttribute="top" secondItem="DV5-2d-EKa" secondAttribute="bottom" constant="20" id="Ou7-xH-RNo"/>
+                            <constraint firstAttribute="trailing" secondItem="8Yq-g7-r2P" secondAttribute="trailing" constant="10" id="Qqn-rn-tt5"/>
+                            <constraint firstItem="Bqu-Ah-cMb" firstAttribute="leading" secondItem="AaX-K1-exx" secondAttribute="leading" id="Ucm-nt-DmY"/>
+                            <constraint firstItem="DV5-2d-EKa" firstAttribute="leading" secondItem="AaX-K1-exx" secondAttribute="leading" constant="10" id="V7u-gC-vj4"/>
+                            <constraint firstItem="myF-w1-Y5z" firstAttribute="leading" secondItem="AaX-K1-exx" secondAttribute="leading" constant="10" id="YRt-g9-KDk"/>
+                            <constraint firstAttribute="bottom" secondItem="Bqu-Ah-cMb" secondAttribute="bottom" id="bo7-Ca-dtF"/>
+                            <constraint firstItem="Bqu-Ah-cMb" firstAttribute="top" secondItem="8Yq-g7-r2P" secondAttribute="bottom" constant="17" id="cM5-y7-rG0"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqu-Ah-cMb" secondAttribute="trailing" id="fIe-Vj-qsC"/>
+                            <constraint firstItem="uM3-UY-MIx" firstAttribute="centerX" secondItem="Bqu-Ah-cMb" secondAttribute="centerX" id="i6o-sH-8we"/>
+                            <constraint firstItem="myF-w1-Y5z" firstAttribute="top" secondItem="AaX-K1-exx" secondAttribute="top" constant="10" id="wbk-jJ-7GA"/>
+                            <constraint firstAttribute="trailing" secondItem="myF-w1-Y5z" secondAttribute="trailing" constant="10" id="zYh-rJ-vbo"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pathControl" destination="DV5-2d-EKa" id="MB0-pW-AI3"/>
+                        <outlet property="progressIndicator" destination="uM3-UY-MIx" id="a8Q-OE-547"/>
+                        <outlet property="webView" destination="Bqu-Ah-cMb" id="NKk-mx-OH8"/>
+                    </connections>
                 </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="tKy-Aj-CBL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="1459"/>
+        </scene>
+        <!--Second View Controller-->
+        <scene sceneID="dYK-jB-U80">
+            <objects>
+                <viewController identifier="secondVC" storyboardIdentifier="secondVC" id="6cK-6m-Rti" customClass="SecondViewController" customModule="SBXcodeDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="BKr-VN-Uvp">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55n-HL-1k8">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="739"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2Jf-uG-hN6">
+                                <rect key="frame" x="384" y="354" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7pr-g5-veq">
+                                <rect key="frame" x="10" y="759" width="671" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter your url here or select from web page below" drawsBackground="YES" id="b65-fI-fDG">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f6s-gb-aWd">
+                                <rect key="frame" x="693" y="752" width="101" height="32"/>
+                                <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ffa-uB-MP3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="downloadButtonTapped:" target="6cK-6m-Rti" id="YRN-0R-X9o"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="f6s-gb-aWd" firstAttribute="leading" secondItem="7pr-g5-veq" secondAttribute="trailing" constant="18" id="4V3-fg-rgT"/>
+                            <constraint firstItem="7pr-g5-veq" firstAttribute="top" secondItem="BKr-VN-Uvp" secondAttribute="top" constant="20" id="8jD-3o-TXH"/>
+                            <constraint firstItem="55n-HL-1k8" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" id="FYu-1i-lPw"/>
+                            <constraint firstAttribute="trailing" secondItem="55n-HL-1k8" secondAttribute="trailing" id="HB5-yI-g2b"/>
+                            <constraint firstItem="55n-HL-1k8" firstAttribute="top" secondItem="f6s-gb-aWd" secondAttribute="bottom" constant="20" id="HF2-1V-lVy"/>
+                            <constraint firstItem="2Jf-uG-hN6" firstAttribute="centerX" secondItem="55n-HL-1k8" secondAttribute="centerX" id="NE1-ZK-rmo"/>
+                            <constraint firstItem="7pr-g5-veq" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" constant="10" id="gBL-xk-RYR"/>
+                            <constraint firstAttribute="bottom" secondItem="55n-HL-1k8" secondAttribute="bottom" id="htp-3e-Kde"/>
+                            <constraint firstItem="55n-HL-1k8" firstAttribute="top" secondItem="7pr-g5-veq" secondAttribute="bottom" constant="20" id="m1S-f4-e4T"/>
+                            <constraint firstAttribute="trailing" secondItem="f6s-gb-aWd" secondAttribute="trailing" constant="12" id="maf-gD-usU"/>
+                            <constraint firstItem="2Jf-uG-hN6" firstAttribute="centerY" secondItem="55n-HL-1k8" secondAttribute="centerY" id="rrM-O1-W3T"/>
+                            <constraint firstItem="f6s-gb-aWd" firstAttribute="top" secondItem="BKr-VN-Uvp" secondAttribute="top" constant="20" id="zKm-0e-VyW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="downloadButton" destination="f6s-gb-aWd" id="9qo-pk-ESQ"/>
+                        <outlet property="progressIndicator" destination="2Jf-uG-hN6" id="lPy-8S-MiC"/>
+                        <outlet property="urlTextField" destination="7pr-g5-veq" id="fKL-2O-aVv"/>
+                        <outlet property="webView" destination="55n-HL-1k8" id="8oj-cO-ZGA"/>
+                    </connections>
+                </viewController>
+                <customObject id="OH2-jf-azU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="946" y="1459"/>
+        </scene>
+        <!--Download View Controller-->
+        <scene sceneID="CMz-6o-H0j">
+            <objects>
+                <viewController identifier="downloadScreen" storyboardIdentifier="downloadScreen" id="FV8-Jn-aut" customClass="DownloadViewController" customModule="SBXcodeDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="765-6F-DHh">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A2k-cx-4nh">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="710"/>
+                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="8TQ-jP-oE0">
+                                    <rect key="frame" x="0.0" y="0.0" width="800" height="710"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="X4a-H8-S7w">
+                                            <rect key="frame" x="0.0" y="0.0" width="800" height="710"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            <size key="minSize" width="800" height="710"/>
+                                            <size key="maxSize" width="800" height="10000000"/>
+                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        </textView>
+                                    </subviews>
+                                </clipView>
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="egZ-pv-H92">
+                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="25y-qX-B0M">
+                                    <rect key="frame" x="784" y="0.0" width="16" height="710"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </scroller>
+                            </scrollView>
+                            <progressIndicator wantsLayer="YES" maxValue="100" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="9vT-lX-kFV">
+                                <rect key="frame" x="20" y="729" width="760" height="20"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="apt-6n-MJc">
+                                <rect key="frame" x="18" y="764" width="110" height="16"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Downloading ...." id="Q26-sb-2PR">
+                                    <font key="font" metaFont="systemBold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JXU-mN-crb">
+                                <rect key="frame" x="705" y="752" width="81" height="32"/>
+                                <buttonCell key="cell" type="push" title="Button" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jx2-hd-qcZ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="playPauseButtonTapped:" target="FV8-Jn-aut" id="33k-aF-BTf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="apt-6n-MJc" firstAttribute="top" secondItem="765-6F-DHh" secondAttribute="top" constant="20" id="0po-qK-YfM"/>
+                            <constraint firstItem="A2k-cx-4nh" firstAttribute="top" secondItem="9vT-lX-kFV" secondAttribute="bottom" constant="20" id="De9-5L-yPF"/>
+                            <constraint firstAttribute="bottom" secondItem="A2k-cx-4nh" secondAttribute="bottom" id="Mbo-t2-MKD"/>
+                            <constraint firstItem="JXU-mN-crb" firstAttribute="top" secondItem="765-6F-DHh" secondAttribute="top" constant="20" id="NCj-Pp-gYs"/>
+                            <constraint firstItem="9vT-lX-kFV" firstAttribute="top" secondItem="apt-6n-MJc" secondAttribute="bottom" constant="16" id="Nwr-1s-EX3"/>
+                            <constraint firstItem="apt-6n-MJc" firstAttribute="leading" secondItem="765-6F-DHh" secondAttribute="leading" constant="20" id="PUw-jD-LJd"/>
+                            <constraint firstItem="JXU-mN-crb" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="apt-6n-MJc" secondAttribute="trailing" constant="20" id="YcA-MP-YL3"/>
+                            <constraint firstItem="A2k-cx-4nh" firstAttribute="leading" secondItem="765-6F-DHh" secondAttribute="leading" id="b2W-ls-roV"/>
+                            <constraint firstAttribute="trailing" secondItem="9vT-lX-kFV" secondAttribute="trailing" constant="20" id="qDf-WT-U80"/>
+                            <constraint firstAttribute="trailing" secondItem="A2k-cx-4nh" secondAttribute="trailing" id="rHN-XO-pl2"/>
+                            <constraint firstAttribute="trailing" secondItem="JXU-mN-crb" secondAttribute="trailing" constant="20" id="v53-WK-NEM"/>
+                            <constraint firstItem="9vT-lX-kFV" firstAttribute="leading" secondItem="765-6F-DHh" secondAttribute="leading" constant="20" id="zjc-QF-kci"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="consoleTextView" destination="X4a-H8-S7w" id="Q9O-LI-HkF"/>
+                        <outlet property="downloadProgressBar" destination="9vT-lX-kFV" id="oBK-q5-jen"/>
+                        <outlet property="downloadStatusLabel" destination="apt-6n-MJc" id="7je-mj-79j"/>
+                        <outlet property="playPauseButton" destination="JXU-mN-crb" id="fp1-Oq-0wF"/>
+                        <segue destination="ucQ-ZU-YFS" kind="sheet" identifier="completionSegue" id="JEc-1Z-1Z1"/>
+                    </connections>
+                </viewController>
+                <customObject id="iVW-oy-4JY" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1001" y="361"/>
+        </scene>
+        <!--Download Completion View Controller-->
+        <scene sceneID="bHO-YC-RiE">
+            <objects>
+                <viewController identifier="downloadCompletionViewController" storyboardIdentifier="downloadCompletionViewController" id="ucQ-ZU-YFS" customClass="DownloadCompletionViewController" customModule="SBXcodeDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="C5H-sW-PBp">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="143"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="E8z-2e-ahY">
+                                <rect key="frame" x="18" y="87" width="764" height="36"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Completed" id="Km3-5d-ZnC">
+                                    <font key="font" size="30" name="HelveticaNeue-Bold"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XzN-1U-39D">
+                                <rect key="frame" x="673" y="13" width="113" height="32"/>
+                                <buttonCell key="cell" type="push" title="Go to Home" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="f70-wf-bAV">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="doneButtonTapped:" target="ucQ-ZU-YFS" id="UWm-9k-opT"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="4jd-kB-o93">
+                                <rect key="frame" x="18" y="61" width="764" height="16"/>
+                                <textFieldCell key="cell" selectable="YES" id="7fp-je-oTM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="XzN-1U-39D" firstAttribute="top" secondItem="4jd-kB-o93" secondAttribute="bottom" constant="20" id="0UI-gn-VWZ"/>
+                            <constraint firstItem="E8z-2e-ahY" firstAttribute="leading" secondItem="C5H-sW-PBp" secondAttribute="leading" constant="20" id="3Bg-lg-c8D"/>
+                            <constraint firstItem="E8z-2e-ahY" firstAttribute="centerX" secondItem="C5H-sW-PBp" secondAttribute="centerX" id="3jR-An-x6O"/>
+                            <constraint firstItem="4jd-kB-o93" firstAttribute="top" secondItem="E8z-2e-ahY" secondAttribute="bottom" constant="10" id="8ZC-hJ-g39"/>
+                            <constraint firstItem="XzN-1U-39D" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="C5H-sW-PBp" secondAttribute="leading" constant="10" id="H06-bv-8Bi"/>
+                            <constraint firstAttribute="trailing" secondItem="XzN-1U-39D" secondAttribute="trailing" constant="20" id="KB1-lV-8A5"/>
+                            <constraint firstAttribute="trailing" secondItem="4jd-kB-o93" secondAttribute="trailing" constant="20" id="NSV-ka-pd7"/>
+                            <constraint firstItem="4jd-kB-o93" firstAttribute="leading" secondItem="C5H-sW-PBp" secondAttribute="leading" constant="20" id="dwi-mJ-Zoz"/>
+                            <constraint firstItem="E8z-2e-ahY" firstAttribute="top" secondItem="C5H-sW-PBp" secondAttribute="top" constant="20" id="kwP-B5-BxU"/>
+                            <constraint firstAttribute="bottom" secondItem="XzN-1U-39D" secondAttribute="bottom" constant="20" id="w5i-B4-QoF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="downloadLocationLabel" destination="4jd-kB-o93" id="MHw-AN-lx0"/>
+                    </connections>
+                </viewController>
+                <customObject id="Tyv-Mo-T3l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2756" y="1460"/>
         </scene>
     </scenes>
 </document>

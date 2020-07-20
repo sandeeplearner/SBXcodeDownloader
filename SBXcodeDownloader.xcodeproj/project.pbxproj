@@ -7,12 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		871AF1C324C304A000C4FEDA /* DownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AF1C224C304A000C4FEDA /* DownloadViewController.swift */; };
+		871AF1C724C3985A00C4FEDA /* DownloadViewControllerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 871AF1C624C3985A00C4FEDA /* DownloadViewControllerViewModel.swift */; };
 		873A7A5F244318CF00702FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A5E244318CF00702FAE /* AppDelegate.swift */; };
 		873A7A61244318CF00702FAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A60244318CF00702FAE /* ViewController.swift */; };
 		873A7A63244318D200702FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 873A7A62244318D200702FAE /* Assets.xcassets */; };
 		873A7A66244318D200702FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873A7A64244318D200702FAE /* Main.storyboard */; };
 		873A7A72244318D200702FAE /* SBXcodeDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A71244318D200702FAE /* SBXcodeDownloaderTests.swift */; };
 		873A7A7D244318D200702FAE /* SBXcodeDownloaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A7C244318D200702FAE /* SBXcodeDownloaderUITests.swift */; };
+		878F33DE24C23AD500EBAD8B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F33DD24C23AD500EBAD8B /* SecondViewController.swift */; };
+		87CC906824C4F0F000006773 /* DownloadCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +37,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		871AF1C224C304A000C4FEDA /* DownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewController.swift; sourceTree = "<group>"; };
+		871AF1C624C3985A00C4FEDA /* DownloadViewControllerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadViewControllerViewModel.swift; sourceTree = "<group>"; };
 		873A7A5B244318CF00702FAE /* SBXcodeDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SBXcodeDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		873A7A5E244318CF00702FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		873A7A60244318CF00702FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,6 +52,9 @@
 		873A7A78244318D200702FAE /* SBXcodeDownloaderUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SBXcodeDownloaderUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		873A7A7C244318D200702FAE /* SBXcodeDownloaderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SBXcodeDownloaderUITests.swift; sourceTree = "<group>"; };
 		873A7A7E244318D200702FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8769853B24BBAB4900D7C05D /* SBXcodeDownloaderRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SBXcodeDownloaderRelease.entitlements; sourceTree = "<group>"; };
+		878F33DD24C23AD500EBAD8B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCompletionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,12 +105,17 @@
 		873A7A5D244318CF00702FAE /* SBXcodeDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				8769853B24BBAB4900D7C05D /* SBXcodeDownloaderRelease.entitlements */,
 				873A7A5E244318CF00702FAE /* AppDelegate.swift */,
 				873A7A60244318CF00702FAE /* ViewController.swift */,
 				873A7A62244318D200702FAE /* Assets.xcassets */,
 				873A7A64244318D200702FAE /* Main.storyboard */,
 				873A7A67244318D200702FAE /* Info.plist */,
 				873A7A68244318D200702FAE /* SBXcodeDownloader.entitlements */,
+				878F33DD24C23AD500EBAD8B /* SecondViewController.swift */,
+				871AF1C224C304A000C4FEDA /* DownloadViewController.swift */,
+				871AF1C624C3985A00C4FEDA /* DownloadViewControllerViewModel.swift */,
+				87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */,
 			);
 			path = SBXcodeDownloader;
 			sourceTree = "<group>";
@@ -254,8 +268,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				878F33DE24C23AD500EBAD8B /* SecondViewController.swift in Sources */,
 				873A7A61244318CF00702FAE /* ViewController.swift in Sources */,
+				87CC906824C4F0F000006773 /* DownloadCompletionViewController.swift in Sources */,
+				871AF1C324C304A000C4FEDA /* DownloadViewController.swift in Sources */,
 				873A7A5F244318CF00702FAE /* AppDelegate.swift in Sources */,
+				871AF1C724C3985A00C4FEDA /* DownloadViewControllerViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -439,7 +457,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SBXcodeDownloader/SBXcodeDownloader.entitlements;
+				CODE_SIGN_ENTITLEMENTS = SBXcodeDownloader/SBXcodeDownloaderRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = V8JLMJ6X3P;
