@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17132" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15705"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="15705"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17132"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="17132"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -787,24 +788,120 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-v1-OUn">
-                                <rect key="frame" x="74" y="377" width="653" height="47"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="This Feature will be implemented soon" id="Kn7-1Y-SoQ">
-                                    <font key="font" metaFont="system" size="40"/>
+                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7L-jh-iou">
+                                <rect key="frame" x="0.0" y="0.0" width="800" height="694"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="9Qv-um-8vy">
+                                <rect key="frame" x="18" y="757" width="287" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Current URL being processed:" id="My7-5g-Qyl">
+                                    <font key="font" metaFont="systemBold" size="20"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" preferredMaxLayoutWidth="651" translatesAutoresizingMaskIntoConstraints="NO" id="dbV-Cq-vv6">
+                                <rect key="frame" x="18" y="714" width="655" height="23"/>
+                                <textFieldCell key="cell" lineBreakMode="truncatingTail" placeholderString="current url" usesSingleLineMode="YES" id="Knh-Jr-17r">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button horizontalHuggingPriority="999" verticalHuggingPriority="750" horizontalCompressionResistancePriority="999" translatesAutoresizingMaskIntoConstraints="NO" id="IcB-qf-QDd">
+                                <rect key="frame" x="685" y="708" width="101" height="32"/>
+                                <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="SdA-FC-NJ3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="downloadButtonTapped:" target="6cK-6m-Rti" id="7MS-RB-DfS"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="XuI-v1-OUn" firstAttribute="centerY" secondItem="BKr-VN-Uvp" secondAttribute="centerY" id="6ho-5B-koY"/>
-                            <constraint firstItem="XuI-v1-OUn" firstAttribute="centerX" secondItem="BKr-VN-Uvp" secondAttribute="centerX" id="seJ-en-8Ve"/>
+                            <constraint firstItem="I7L-jh-iou" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" id="8nK-UO-Eh0"/>
+                            <constraint firstItem="dbV-Cq-vv6" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" constant="20" id="B84-JS-pC6"/>
+                            <constraint firstItem="9Qv-um-8vy" firstAttribute="top" secondItem="BKr-VN-Uvp" secondAttribute="top" constant="20" id="HkH-gq-CnK"/>
+                            <constraint firstItem="I7L-jh-iou" firstAttribute="top" secondItem="dbV-Cq-vv6" secondAttribute="bottom" constant="20" id="L4j-JX-Wjl"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9Qv-um-8vy" secondAttribute="trailing" constant="20" id="NeJ-tC-9FF"/>
+                            <constraint firstItem="9Qv-um-8vy" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" constant="20" id="Ojg-WJ-Ara"/>
+                            <constraint firstItem="dbV-Cq-vv6" firstAttribute="top" secondItem="9Qv-um-8vy" secondAttribute="bottom" constant="20" id="SSf-NZ-8FO"/>
+                            <constraint firstItem="IcB-qf-QDd" firstAttribute="centerY" secondItem="dbV-Cq-vv6" secondAttribute="centerY" id="dBW-Bn-IWG"/>
+                            <constraint firstAttribute="trailing" secondItem="IcB-qf-QDd" secondAttribute="trailing" constant="20" id="nY5-2D-rEd"/>
+                            <constraint firstAttribute="trailing" secondItem="I7L-jh-iou" secondAttribute="trailing" id="r4r-k5-0nk"/>
+                            <constraint firstAttribute="bottom" secondItem="I7L-jh-iou" secondAttribute="bottom" id="yCs-mG-cK0"/>
+                            <constraint firstItem="IcB-qf-QDd" firstAttribute="leading" secondItem="dbV-Cq-vv6" secondAttribute="trailing" constant="20" id="zIt-sc-bg6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="currentURLTextField" destination="dbV-Cq-vv6" id="JiA-Bb-bHg"/>
+                        <outlet property="downloadButton" destination="IcB-qf-QDd" id="lDN-Bf-uDs"/>
+                        <outlet property="webView" destination="I7L-jh-iou" id="aCA-fl-x56"/>
+                        <segue destination="SkQ-JB-zME" kind="sheet" identifier="loadBaseURLViewController" id="UQH-pV-rK3"/>
+                    </connections>
                 </viewController>
                 <customObject id="OH2-jf-azU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="946" y="1459"/>
+        </scene>
+        <!--Obtain Base URL View Controller-->
+        <scene sceneID="QCs-9n-Yon">
+            <objects>
+                <viewController identifier="baseURLViewController" storyboardIdentifier="baseURLViewController" id="SkQ-JB-zME" customClass="ObtainBaseURLViewController" customModule="SBXcodeDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="gjZ-gt-m4I">
+                        <rect key="frame" x="0.0" y="0.0" width="800" height="130"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="6WP-A8-rMk">
+                                <rect key="frame" x="18" y="81" width="764" height="29"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Enter base url and navigate to link which you want to download" id="6Bb-WK-dLu">
+                                    <font key="font" metaFont="system" size="25"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cBN-fL-Tkn">
+                                <rect key="frame" x="20" y="30" width="694" height="21"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="https://developer.apple.com" drawsBackground="YES" id="F0O-GL-yFA">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SSN-SH-sUF">
+                                <rect key="frame" x="728" y="23" width="58" height="32"/>
+                                <buttonCell key="cell" type="push" title="Go" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="pQM-ke-pJW">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="goButtonTapped:" target="SkQ-JB-zME" id="Byq-rQ-0Gx"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="6WP-A8-rMk" firstAttribute="leading" secondItem="gjZ-gt-m4I" secondAttribute="leading" constant="20" id="89q-Lc-G4p"/>
+                            <constraint firstAttribute="trailing" secondItem="6WP-A8-rMk" secondAttribute="trailing" constant="20" id="B2j-rv-B3x"/>
+                            <constraint firstItem="6WP-A8-rMk" firstAttribute="top" secondItem="gjZ-gt-m4I" secondAttribute="top" constant="20" id="BZI-BH-pYs"/>
+                            <constraint firstAttribute="bottom" secondItem="cBN-fL-Tkn" secondAttribute="bottom" constant="30" id="Qbf-if-iLY"/>
+                            <constraint firstItem="cBN-fL-Tkn" firstAttribute="top" secondItem="6WP-A8-rMk" secondAttribute="bottom" constant="30" id="WvG-pg-Wjc"/>
+                            <constraint firstAttribute="trailing" secondItem="SSN-SH-sUF" secondAttribute="trailing" constant="20" id="b9g-PO-guu"/>
+                            <constraint firstItem="SSN-SH-sUF" firstAttribute="centerY" secondItem="cBN-fL-Tkn" secondAttribute="centerY" id="eLi-sW-ZOt"/>
+                            <constraint firstItem="SSN-SH-sUF" firstAttribute="leading" secondItem="cBN-fL-Tkn" secondAttribute="trailing" constant="20" id="qrv-9b-Usk"/>
+                            <constraint firstItem="cBN-fL-Tkn" firstAttribute="leading" secondItem="gjZ-gt-m4I" secondAttribute="leading" constant="20" id="syj-ff-yHf"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="urlTextField" destination="cBN-fL-Tkn" id="3f0-MK-7BN"/>
+                    </connections>
+                </viewController>
+                <customObject id="8vv-ay-V9L" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1933" y="1459"/>
         </scene>
         <!--Download View Controller-->
         <scene sceneID="CMz-6o-H0j">
@@ -943,7 +1040,7 @@
                 </viewController>
                 <customObject id="Tyv-Mo-T3l" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2756" y="1460"/>
+            <point key="canvasLocation" x="1971" y="362"/>
         </scene>
     </scenes>
 </document>

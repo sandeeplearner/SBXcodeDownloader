@@ -49,6 +49,7 @@ class ViewController: NSViewController {
     
     @IBAction func openSecondViewController(_ sender: Any) {
         if let secondViewController = self.storyboard?.instantiateController(withIdentifier: "secondVC") as? SecondViewController {
+            secondViewController.downloadFolderPath = self.downloadFolderPath
             self.view.window?.contentViewController = secondViewController
         }
     }
@@ -64,16 +65,9 @@ extension ViewController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let absoluteString = navigationAction.request.url?.absoluteString, absoluteString.contains("download.developer.apple.com/Developer_Tools") {
             let downloadURL = navigationAction.request.url!
-            self.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies {[weak self] (cookies) in
-                guard let self = self else { return }
-                var cookieString = ""
-                for cookie in cookies {
-                    if cookie.domain.contains(".apple.com") {
-                        cookieString += self.getCookieString(for: cookie)
-                    }
-                }
-                self.writeToFile(cookieString: cookieString)
-                self.openDownloadViewController(with: downloadURL)
+            self.parseWebViewForCookiesAndGenerateCookiesTxt(webView: self.webView,
+                                                             downloadFolderPath: self.downloadFolderPath) {[weak self] in
+                self?.openDownloadViewController(with: downloadURL)
             }
             decisionHandler(.cancel)
         }
@@ -87,36 +81,7 @@ extension ViewController: WKNavigationDelegate {
     }
 }
 
-extension ViewController {
-    private func getCookieString(for cookie: HTTPCookie) -> String {
-        var cookieString = ""
-        cookieString = cookie.domain + "\t"
-        cookieString += "TRUE\t"
-        cookieString += cookie.path + "\t"
-        cookieString += cookie.isSecure ? "TRUE" + "\t" : ""
-        var timeIntervalString = "0"
-        if let expiryDate = cookie.expiresDate {
-            timeIntervalString = "\(expiryDate.timeIntervalSince1970)" + "\t"
-        }
-        else {
-            timeIntervalString += "\t"
-        }
-        cookieString += timeIntervalString
-        cookieString += cookie.name + "\t"
-        cookieString += cookie.value + "\n"
-        return cookieString
-    }
-    
-    private func writeToFile(cookieString: String) {
-        let desktopURL = self.downloadFolderPath
-        let fileURL = desktopURL.appendingPathComponent("cookies").appendingPathExtension("txt")
-        do {
-            try cookieString.write(to: fileURL, atomically: true, encoding: String.Encoding.utf8)
-        } catch let error as NSError {
-            print("Error: fileURL failed to write: \n\(error)" )
-        }
-    }
-}
+extension ViewController: CookieGeneratorProtocol {}
 
 extension Date {
     func currentTimeInMiliseconds() -> Int {

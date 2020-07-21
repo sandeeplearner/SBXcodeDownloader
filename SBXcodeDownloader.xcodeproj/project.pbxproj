@@ -16,6 +16,8 @@
 		873A7A72244318D200702FAE /* SBXcodeDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A71244318D200702FAE /* SBXcodeDownloaderTests.swift */; };
 		873A7A7D244318D200702FAE /* SBXcodeDownloaderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873A7A7C244318D200702FAE /* SBXcodeDownloaderUITests.swift */; };
 		878F33DE24C23AD500EBAD8B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 878F33DD24C23AD500EBAD8B /* SecondViewController.swift */; };
+		87A2C31D24C78E230045DDB9 /* ObtainBaseURLViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2C31C24C78E230045DDB9 /* ObtainBaseURLViewController.swift */; };
+		87A2C31F24C796A40045DDB9 /* CookieGeneratorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87A2C31E24C796A40045DDB9 /* CookieGeneratorProtocol.swift */; };
 		87CC906824C4F0F000006773 /* DownloadCompletionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +56,8 @@
 		873A7A7E244318D200702FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8769853B24BBAB4900D7C05D /* SBXcodeDownloaderRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SBXcodeDownloaderRelease.entitlements; sourceTree = "<group>"; };
 		878F33DD24C23AD500EBAD8B /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		87A2C31C24C78E230045DDB9 /* ObtainBaseURLViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObtainBaseURLViewController.swift; sourceTree = "<group>"; };
+		87A2C31E24C796A40045DDB9 /* CookieGeneratorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookieGeneratorProtocol.swift; sourceTree = "<group>"; };
 		87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadCompletionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -116,6 +120,8 @@
 				871AF1C224C304A000C4FEDA /* DownloadViewController.swift */,
 				871AF1C624C3985A00C4FEDA /* DownloadViewControllerViewModel.swift */,
 				87CC906724C4F0F000006773 /* DownloadCompletionViewController.swift */,
+				87A2C31C24C78E230045DDB9 /* ObtainBaseURLViewController.swift */,
+				87A2C31E24C796A40045DDB9 /* CookieGeneratorProtocol.swift */,
 			);
 			path = SBXcodeDownloader;
 			sourceTree = "<group>";
@@ -271,7 +277,9 @@
 				878F33DE24C23AD500EBAD8B /* SecondViewController.swift in Sources */,
 				873A7A61244318CF00702FAE /* ViewController.swift in Sources */,
 				87CC906824C4F0F000006773 /* DownloadCompletionViewController.swift in Sources */,
+				87A2C31F24C796A40045DDB9 /* CookieGeneratorProtocol.swift in Sources */,
 				871AF1C324C304A000C4FEDA /* DownloadViewController.swift in Sources */,
+				87A2C31D24C78E230045DDB9 /* ObtainBaseURLViewController.swift in Sources */,
 				873A7A5F244318CF00702FAE /* AppDelegate.swift in Sources */,
 				871AF1C724C3985A00C4FEDA /* DownloadViewControllerViewModel.swift in Sources */,
 			);
