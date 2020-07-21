@@ -17,3 +17,15 @@ Simply download/clone the repo and run the code. Once Downloader app opens up fo
 1. Select the developer tool you wish to download
 
 Thats it, now grab a cup of coffe and relax, while Downloader ensures safe downloading.
+
+# Requirement 
+Make sure you have `wget` installed in your mac. If you dont have `wget` simply run `brew install wget` to install it. If you still face issue with instlling `wget` follow [tutorial](https://www.fossmint.com/install-and-use-wget-on-mac/)
+
+# Misc
+Though the name of the product says Xcode Downloader, it can download any of the developer tool provided by apple on its official site.
+
+Your file will be downloaded to selected folder. Along with the file you intend to download you will find `cookies.txt` and `logs.txt` files. You can use `cookies.txt` file to work with `wget` command if you decide to experiment with it yourself. You can always look at `logs.txt` to find what went wrong with your downloading. 
+
+Because under the hood SBXcodeDownloader uses plain `wget` you can find help online help easily, if you happen to face any issue with your download.
+
+Feel free to contribute to code
