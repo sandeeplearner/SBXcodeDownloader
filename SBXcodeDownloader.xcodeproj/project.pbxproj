@@ -440,7 +440,7 @@
 				CODE_SIGN_ENTITLEMENTS = SBXcodeDownloader/SBXcodeDownloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V8JLMJ6X3P;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SBXcodeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -460,7 +460,7 @@
 				CODE_SIGN_ENTITLEMENTS = SBXcodeDownloader/SBXcodeDownloaderRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = V8JLMJ6X3P;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = SBXcodeDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
