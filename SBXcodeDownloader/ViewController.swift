@@ -48,8 +48,8 @@ class ViewController: NSViewController {
     }
     
     @IBAction func openSecondViewController(_ sender: Any) {
-        if let downloadViewController = self.storyboard?.instantiateController(withIdentifier: "downloadScreen") as? DownloadViewController {
-            self.view.window?.contentViewController = downloadViewController
+        if let secondViewController = self.storyboard?.instantiateController(withIdentifier: "secondVC") as? SecondViewController {
+            self.view.window?.contentViewController = secondViewController
         }
     }
     

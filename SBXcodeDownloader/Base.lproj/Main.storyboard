@@ -787,56 +787,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="800" height="800"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="55n-HL-1k8">
-                                <rect key="frame" x="0.0" y="0.0" width="800" height="739"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                            <progressIndicator wantsLayer="YES" maxValue="100" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="2Jf-uG-hN6">
-                                <rect key="frame" x="384" y="354" width="32" height="32"/>
-                            </progressIndicator>
-                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7pr-g5-veq">
-                                <rect key="frame" x="10" y="759" width="671" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Enter your url here or select from web page below" drawsBackground="YES" id="b65-fI-fDG">
-                                    <font key="font" usesAppearanceFont="YES"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XuI-v1-OUn">
+                                <rect key="frame" x="74" y="377" width="653" height="47"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="This Feature will be implemented soon" id="Kn7-1Y-SoQ">
+                                    <font key="font" metaFont="system" size="40"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="f6s-gb-aWd">
-                                <rect key="frame" x="693" y="752" width="101" height="32"/>
-                                <buttonCell key="cell" type="push" title="Download" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ffa-uB-MP3">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="downloadButtonTapped:" target="6cK-6m-Rti" id="YRN-0R-X9o"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="f6s-gb-aWd" firstAttribute="leading" secondItem="7pr-g5-veq" secondAttribute="trailing" constant="18" id="4V3-fg-rgT"/>
-                            <constraint firstItem="7pr-g5-veq" firstAttribute="top" secondItem="BKr-VN-Uvp" secondAttribute="top" constant="20" id="8jD-3o-TXH"/>
-                            <constraint firstItem="55n-HL-1k8" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" id="FYu-1i-lPw"/>
-                            <constraint firstAttribute="trailing" secondItem="55n-HL-1k8" secondAttribute="trailing" id="HB5-yI-g2b"/>
-                            <constraint firstItem="55n-HL-1k8" firstAttribute="top" secondItem="f6s-gb-aWd" secondAttribute="bottom" constant="20" id="HF2-1V-lVy"/>
-                            <constraint firstItem="2Jf-uG-hN6" firstAttribute="centerX" secondItem="55n-HL-1k8" secondAttribute="centerX" id="NE1-ZK-rmo"/>
-                            <constraint firstItem="7pr-g5-veq" firstAttribute="leading" secondItem="BKr-VN-Uvp" secondAttribute="leading" constant="10" id="gBL-xk-RYR"/>
-                            <constraint firstAttribute="bottom" secondItem="55n-HL-1k8" secondAttribute="bottom" id="htp-3e-Kde"/>
-                            <constraint firstItem="55n-HL-1k8" firstAttribute="top" secondItem="7pr-g5-veq" secondAttribute="bottom" constant="20" id="m1S-f4-e4T"/>
-                            <constraint firstAttribute="trailing" secondItem="f6s-gb-aWd" secondAttribute="trailing" constant="12" id="maf-gD-usU"/>
-                            <constraint firstItem="2Jf-uG-hN6" firstAttribute="centerY" secondItem="55n-HL-1k8" secondAttribute="centerY" id="rrM-O1-W3T"/>
-                            <constraint firstItem="f6s-gb-aWd" firstAttribute="top" secondItem="BKr-VN-Uvp" secondAttribute="top" constant="20" id="zKm-0e-VyW"/>
+                            <constraint firstItem="XuI-v1-OUn" firstAttribute="centerY" secondItem="BKr-VN-Uvp" secondAttribute="centerY" id="6ho-5B-koY"/>
+                            <constraint firstItem="XuI-v1-OUn" firstAttribute="centerX" secondItem="BKr-VN-Uvp" secondAttribute="centerX" id="seJ-en-8Ve"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="downloadButton" destination="f6s-gb-aWd" id="9qo-pk-ESQ"/>
-                        <outlet property="progressIndicator" destination="2Jf-uG-hN6" id="lPy-8S-MiC"/>
-                        <outlet property="urlTextField" destination="7pr-g5-veq" id="fKL-2O-aVv"/>
-                        <outlet property="webView" destination="55n-HL-1k8" id="8oj-cO-ZGA"/>
-                    </connections>
                 </viewController>
                 <customObject id="OH2-jf-azU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
