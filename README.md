@@ -16,7 +16,7 @@ Simply download/clone the repo and run the code. Once Downloader app opens up fo
 1. Login to your developer account
 1. Select the developer tool you wish to download
 
-Thats it, now grab a cup of coffe and relax, while Downloader ensures safe downloading.
+Thats it, now grab a cup of coffee and relax, while Downloader ensures safe downloading.
 
 # Requirement 
 Make sure you have `wget` installed in your mac. If you dont have `wget` simply run `brew install wget` to install it. If you still face issue with instlling `wget` follow [tutorial](https://www.fossmint.com/install-and-use-wget-on-mac/)
